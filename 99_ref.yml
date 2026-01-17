@@ -1,4 +1,10 @@
 
+r_cal1t:
+  type: Web
+  author: 中安淳
+  title: 微分積分学１
+  url: https://github.com/ankys/cal1t
+  date: 2024-1-5
 r_n24a:
   type: Web
   author: 中安淳
