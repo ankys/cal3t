@@ -235,7 +235,7 @@ $F$を点集合$X$上の$RR^M$値関数、$a$を$X$の極限点、$L$を$RR^M$�
 関数$F(x)$が$x -> a$で点$L$に_収束する_あるいは$L$が$F(x)$の$x -> a$での_極限である_とは
 度合い関数$omega_a$が存在し任意の$x in X$に対して
 $
-d(L, F(x)) <= omega_a(d(a, x))
+d(L, F(x)) <= omega_a (d(a, x))
 $
 が成り立つことをいう。
 ]
@@ -245,7 +245,6 @@ $RR^M$値関数の極限を調べるには各成分の極限を調べれば十�
 #proposition[
 $f_1, dots, f_M$を点集合$X$上の実数値関数として$F(x) = (f_1 (x), dots, f_M (x))$により$RR^M$値関数$F$を定める。
 $a$を$X$の極限点、$L = (l_1, dots, l_M)$を$RR^M$の点とする。
-
 このとき、関数$F(x)$が$x -> a$で点$L$に収束することは、
 各$i = 1, dots, M$に対して関数$f_i (x)$が$x -> a$で実数$l_i$に収束することと同値である。
 ]
@@ -265,14 +264,14 @@ $
 新しい度合い関数を$omega_a (r) = max{ omega_a^1 (r), dots, omega_a^M (r) }$として取ると、
 $
 d(L, F(x))
-= sqrt((f_1 (x)-l_1)^2+dots+(f_M (x)-l_M)^2)
-<= sqrt(omega_a^1 (d(a, x))^2+dots+omega_a^M (d(a, x))^2)
+&= sqrt((f_1 (x)-l_1)^2+dots+(f_M (x)-l_M)^2) \
+&<= sqrt(omega_a^1 (d(a, x))^2+dots+omega_a^M (d(a, x))^2)
 <= sqrt(M) omega_a (d(a, x))
 $
 なので$F(x)$も収束する。
 ]
 
-今後$N$変数関数の極限や連続性も$RR^M$値に拡張すべきだが、実数値の場合だけ明記して$RR^M$値の場合の定義等は省略する。
+今後$N$変数関数の極限や連続性も$RR^M$値に拡張すべきだが、実数値の場合だけ記して$RR^M$値の場合の定義等は省略する。
 
 $N$変数関数は点$(a_1, dots, a_N)$から点$(x_1, dots, x_N)$の距離が
 $
@@ -282,7 +281,6 @@ $
 
 #definition([多変数関数の極限])[
 $f$を$RR^N$の部分集合$X$上で定義された$N$変数実数値関数、$(a_1, dots, a_N)$を$X$の極限点、$l$を実数とする。
-
 $N$変数関数$f(x_1, dots, x_N)$が$(x_1, dots, x_N) -> (a_1, dots, a_N)$で実数$l$に_収束する_あるいは$l$が$f(x_1, dots, x_N)$の$(x_1, dots, x_N) -> (a_1, dots, a_N)$での_極限である_とは
 度合い関数$omega_((a_1, dots, a_N))$が存在し任意の$(x_1, dots, x_N) in X$に対して
 $
@@ -325,10 +323,11 @@ $
 ]
 
 #proof[
-次の不等式が成り立つことからすぐわかる。
+不等式
 $
 abs(x_i-a_i) <= sqrt((x_1-a_1)^2+dots+(x_N-a_N)^2).
 $
+が成り立つことからすぐわかる。
 ]
 
 #proposition([距離の連続性])[
@@ -348,8 +347,8 @@ $
 実際、三角不等式より
 $
 abs(d(x, y)-d(a, b))
-= abs((d(x, y)-d(a, y))+(d(a, y)-d(a, b)))
-<= d(a, x)+d(b, y)
+&= abs((d(x, y)-d(a, y))+(d(a, y)-d(a, b))) \
+&<= d(a, x)+d(b, y)
 <= 2 sqrt(d(a, x)^2+d(b, y)^2)
 $
 で、これは$d$が連続関数であることを意味している。
@@ -420,9 +419,9 @@ $F$を$N$次元点集合$X$上の$RR^M$値関数、$g$を$M$次元点集合$Y$�
 + 三角不等式より$r = sqrt((x-a)^2+(y-b)^2)$とおくと
   $
   abs(x y-a b)
-  = abs((x y-x b)+(x b-a b))
-  <= abs(x)abs(y-b)+abs(x-a)abs(b)
-  <= abs(x-a)abs(y-b)+abs(a)abs(y-b)+abs(x-a)abs(b)
+  &= abs((x y-x b)+(x b-a b))
+  <= abs(x)abs(y-b)+abs(x-a)abs(b) \
+  &<= abs(x-a)abs(y-b)+abs(a)abs(y-b)+abs(x-a)abs(b)
   <= r^2+(abs(a)+abs(b))r.
   $
   ここで、各$(a, b)$ごとに$lim_(r -> 0+) (r^2+(abs(a)+abs(b))r) = 0$より、
@@ -457,7 +456,7 @@ $F$を$N$次元点集合$X$上の$RR^M$値関数、$g$を$M$次元点集合$Y$�
 $(a, b) in RR times RR$として、$f$を$(RR times RR)\\{(a, b)}$上で定義された二変数実数値関数とする。
 このとき、二変数関数$f(x, y)$が$(x, y) -> (a, b)$で実数$l$に収束することの必要十分条件は
 $
-lim_(r -> 0+) sup_theta abs(f(a+r cos theta, b+r sin theta)-l|) = 0
+lim_(r -> 0+) sup_theta abs(f(a+r cos theta, b+r sin theta)-l) = 0
 $
 が成り立つことである。
 
