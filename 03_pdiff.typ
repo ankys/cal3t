@@ -24,10 +24,9 @@ $
 $
 f_(x_i) (a_1, dots, a_N),
 quad pdv(f, x_i) (a_1, dots, a_N),
-quad eval(pdv(f, x_i))_((x_1, dots, x_N) = (a_1, dots, a_N)),
-quad eval(pdv(, x_i)(f(x_1, dots, x_N)))_((x_1, dots, x_N) = (a_1, dots, a_N)),
-$
-$
+quad eval(pdv(f, x_i))_((x_1, dots, x_N) = (a_1, dots, a_N)), \
+eval((f(x_1, dots, x_N))_(x_i))_((x_1, dots, x_N) = (a_1, dots, a_N)),
+quad eval(pdv(, x_i)(f(x_1, dots, x_N)))_((x_1, dots, x_N) = (a_1, dots, a_N)), \
 eval(y_(x_i))_((a_1, dots, a_N)),
 quad eval(pdv(y, x_i))_((a_1, dots, a_N))
 $
@@ -40,6 +39,7 @@ $y = f(x_1, dots, x_N)$の$x_i$についての偏微分導関数を
 $
 f_(x_i),
 quad pdv(f, x_i),
+quad (f(x_1, dots, x_N))_(x_i),
 quad pdv(, x_i)(f(x_1, dots, x_N)),
 quad y_(x_i),
 quad pdv(y, x_i)
@@ -102,7 +102,7 @@ $
 == 全微分
 
 #definition([勾配])[
-$N$変数関数$f(x) = f(x_1, dots, x_N)$が点$x = a$において各$x_i$について偏微分可能であるとするとき、
+$N$変数関数$f(x) = f(x_1, dots, x_N)$が点$x = a$において各$x_i$ ($i = 1, dots, N$)について偏微分可能であるとするとき、
 偏微分係数を順番に並べて得られる$N$次元ベクトル
 $
 gradient f(a) = (f_(x_1) (a), dots, f_(x_N) (a))
@@ -191,8 +191,8 @@ $f(x)$を$RR^N$の部分集合$X$上で定義された$N$変数実数値関数�
 三角不等式とコーシー・シュワルツの不等式より
 $
 abs(f(x)-f(a))
-<= abs(f(x)-f(a)-gradient f(a) dot (x-a))+abs(gradient f(a) dot (x-a))
-<= norm(x-a)omega_a (norm(x-a))+norm(gradient f(a))norm(x-a).
+&<= abs(f(x)-f(a)-gradient f(a) dot (x-a))+abs(gradient f(a) dot (x-a)) \
+&<= norm(x-a)omega_a (norm(x-a))+norm(gradient f(a))norm(x-a).
 $
 ここで$x -> a$で最右辺は$0$に収束するので、$f(x)$は$x = a$で連続である。
 ]
@@ -201,20 +201,21 @@ $
 
 一変数関数$f(x), g(y)$の合成関数の微分とは
 $
-dv(, x)(g(f(x))) = g'(f(x))f'(x)
+(g(f(x)))' = g'(f(x))f'(x)
 $
-であったが、これの多変数関数版を考えたい。
+であったが、この多変数関数版を考えたい。
 $f(x)$が多変数関数$f(x) = f(x_1, dots, x_N)$の場合は$g(f(x))$も多変数関数で偏微分を考えると
 $
-pdv(, x_i)(g(f(x))) = g'(f(x))pdv(f, x_i)(x),
+(g(f(x)))_(x_i) = g'(f(x))f_(x_i) (x),
 quad gradient(g(f(x))) = g'(f(x))gradient f(x)
 $
-となるが、問題は$g(y)$が多変数関数$g(y) = g(y_1, dots, y_M)$の場合である。
+となるが、
+問題は$g(y)$が多変数関数$g(y) = g(y_1, dots, y_M)$の場合である。
 このとき$f(x)$は$RR^M$値関数$f(x) = (f_1 (x), dots, f_M (x))$である必要があり、
 $g(f(x))$は（$f(x)$が一変数関数ならば）一変数関数となるのでその微分を考える価値がある。
-この関数が$x = a$で微分可能であるとは各$f_i (x)$が$x = a$で微分可能であることをいい、
+この関数$f(x)$が$x = a$で微分可能であるとは各$f_i (x)$ ($i = 1, dots, M$)が$x = a$で微分可能であることをいい、
 $
-f'(a) = (f_1 '(a), dots, f_N '(a))
+f'(a) = (f_1 '(a), dots, f_M '(a))
 $
 と定義する。
 
@@ -222,9 +223,9 @@ $
 $RR^M$値関数$f(x) = (f_1 (x), dots, f_M (x))$が点$x = a$で微分可能で$M$変数関数$g(y) = g(y_1, dots, y_M)$が点$y = f(a)$で全微分可能とする。
 この時、合成関数$f(g(x))$も$x = a$で微分可能で、
 $
-eval(dv(, x)(g(f(x))))_(x = a)
-= gradient g(f(a)) dot f'(a)
-= pdv(g, y_1)(f(a))f_1 '(a)+dots+pdv(g, y_M)(f(a))f_M '(a)
+eval((g(f(x)))')_(x = a)
+&= gradient g(f(a)) dot f'(a) \
+&= g_(y_1)(f(a))f_1 '(a)+dots+g_(y_M)(f(a))f_M '(a)
 $
 が成立する。
 ]
@@ -242,9 +243,9 @@ abs(g(f(x))-g(f(a))-gradient g(f(a)) dot (f(x)-f(a)))
 $
 これを$abs(x-a)$で割って$x -> a$とすれば、
 $
-abs((g(f(x))-g(f(a)))/(x-a)-gradient g(f(a)) dot (f(x)-f(a))/(x-a))
-<= norm((f(x)-f(a))/(x-a))omega_b (norm(f(x)-f(a)))
--> norm(f'(a))norm(0)
+&abs((g(f(x))-g(f(a)))/(x-a)-gradient g(f(a)) dot (f(x)-f(a))/(x-a)) \
+&quad <= norm((f(x)-f(a))/(x-a))omega_b (norm(f(x)-f(a)))
+-> norm(f'(a)) dot 0
 = 0.
 $
 よって、
@@ -260,10 +261,10 @@ $
 積の微分公式は多変数の合成関数の微分から導出することができる。
 つまり積の関数$h(x, y) = x y$の偏微分は$h_x (x, y) = y$, $h_y (x, y) = x$なので、
 $
-dv(, x)(f(x)g(x))
-= dv(, x)(h(f(x), g(x)))
-= h_x (f(x), g(x))f'(x)+h_y (f(x), g(x))g'(x)
-= g(x)f'(x)+f(x)g'(x)
+(f(x)g(x))'
+&= (h(f(x), g(x)))'
+= h_x (f(x), g(x))f'(x)+h_y (f(x), g(x))g'(x) \
+&= g(x)f'(x)+f(x)g'(x)
 $
 がわかる。
 ]
@@ -273,11 +274,11 @@ $
 @t_pdiff_non_cont で見たように、偏微分可能と連続とは分離された概念であるが、連続（偏）微分可能ならば（全）微分可能なので連続性も従うという事実が知られている。
 
 #definition([連続微分可能性])[
-$RR^N$の開部分集合$X$上の実数値関数$f$が各変数$x_i$に対して偏微分可能で導関数$gradient f$が$X$上の連続関数である時、$f$は$X$上_連続微分可能_であるという。
+$RR^N$の開部分集合$X$上の実数値関数$f$が各変数$x_i$ ($i, 1, dots, N$)に対して偏微分可能で偏微分導関数$f_(x_i)$が$X$上の連続関数である時、$f$は$X$上_連続微分可能_であるという。
 ]
 
 #remark[
-$gradient f$が連続関数のところは各偏微分導関数$f_(x_i)$が連続関数と読みかえられる。
+各偏微分導関数$f_(x_i)$が連続関数のところは$gradient f$が連続関数と読みかえられる。
 ]
 
 #proposition([連続微分可能ならば全微分可能])[
