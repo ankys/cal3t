@@ -581,24 +581,24 @@ $<=$が$=$や$>=$になっている場合も同様に示される。
 #proposition([開集合・閉集合の演算])[
 $A$, $B$を$N$次元点集合とする。
 
-- $A$, $B$が開集合であるとき、共通部分$A sect B$も開集合である。
+- $A$, $B$が開集合であるとき、共通部分$A inter B$も開集合である。
 - $A$, $B$が開集合であるとき、和集合$A union B$も開集合である。
-- $A$, $B$が閉集合であるとき、共通部分$A sect B$も閉集合である。
+- $A$, $B$が閉集合であるとき、共通部分$A inter B$も閉集合である。
 - $A$, $B$が閉集合であるとき、和集合$A union B$も閉集合である。
 ]
 
 #proof[
-- $A$, $B$が開集合として、共通部分$A sect B$を考える。
-  任意の点$a in A sect B$を固定すると、
+- $A$, $B$が開集合として、共通部分$A inter B$を考える。
+  任意の点$a in A inter B$を固定すると、
   $a in A$で$A$は開集合なので、$B_(r_A) (a) subset A$となる半径$r_A > 0$が存在し、
   $a in B$で$B$は開集合なので、$B_(r_B) (a) subset B$となる半径$r_B > 0$が存在する。
-  よって$r = min{ r_A, r_B } > 0$とおくと、$B_r (a) subset A sect B$となるので、$A sect B$は開集合である。
+  よって$r = min{ r_A, r_B } > 0$とおくと、$B_r (a) subset A inter B$となるので、$A inter B$は開集合である。
 - $A$, $B$が開集合として、和集合$A union B$を考える。
   任意の点$a in A union B$を固定する。
   - $a in A$のとき、$A$は開集合なので、$B_r (a) subset A subset A union B$となる半径$r > 0$が存在する。
   - $a in B$のとき、$B$は開集合なので、$B_r (a) subset B subset A union B$となる半径$r > 0$が存在する。
   よっていずれの場合でも$A union B$は開集合であることが示された。
-- 残る閉集合に関する命題はド・モルガンの法則$A sect B = (A^c union B^c)^c$, $A union B = (A^c sect B^c)^c$が成り立つことから従う。
+- 残る閉集合に関する命題はド・モルガンの法則$A inter B = (A^c union B^c)^c$, $A union B = (A^c inter B^c)^c$が成り立つことから従う。
 ]
 
 有界な閉集合である_有界閉集合_が一次元での有界閉区間に相当し今後いろいろなところで出てくる。
@@ -679,7 +679,7 @@ $A$を空でない閉集合、$x$を点とすると、距離関数$f(a) = d(a, x
 
 #proof[
 $A$は空集合でないので、半径$R$を十分大きく取ると$A$と閉円板$overline(B)_R (x)$は共通部分を持つ。
-そのため連続関数$f(a)$は$A sect overline(B)_R (x)$上で最大値と最小値を取る。
+そのため連続関数$f(a)$は$A inter overline(B)_R (x)$上で最大値と最小値を取る。
 最小値を$f(hat(a))$とおくと、$d(hat(a), x) <= R$より$f(hat(a)) <= R$である。
 $overline(B)_R (x)$の外では$f(a) = d(a, x)$の値は$R$より大きいので、$f(hat(a))$は$A$上の最小値にもなっている。
 ]

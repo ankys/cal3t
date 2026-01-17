@@ -155,22 +155,22 @@ $
 ]
 
 #proposition([積分領域の分割])[
-二つの有界集合$D_1, D_2$上で積分可能な関数$f$に対して$f$は$D_1 union D_2, D_1 sect D_2$上でも積分可能で、
-$ integral_(D_1) f(x) dd(x)+integral_(D_2) f(x) dd(x) = integral_(D_1 union D_2) f(x) dd(x)+integral_(D_1 sect D_2) f(x) dd(x) $
-が成り立つ。 特に$D_1 sect D_2$が面積零集合のとき
+二つの有界集合$D_1, D_2$上で積分可能な関数$f$に対して$f$は$D_1 union D_2, D_1 inter D_2$上でも積分可能で、
+$ integral_(D_1) f(x) dd(x)+integral_(D_2) f(x) dd(x) = integral_(D_1 union D_2) f(x) dd(x)+integral_(D_1 inter D_2) f(x) dd(x) $
+が成り立つ。 特に$D_1 inter D_2$が面積零集合のとき
 $ integral_(D_1 union D_2) f(x) dd(x) = integral_(D_1) f(x) dd(x)+integral_(D_2) f(x) dd(x) $
 が成り立つ。
 ]
 
 #proof[
 まず$g(x) = f(x) 1_(D_1) (x) 1_(D_2) (x)$は積分可能な関数の積より、
-$f$は$D_1 sect D_2$上で積分可能であることに注意する。
+$f$は$D_1 inter D_2$上で積分可能であることに注意する。
 $D_1 union D_2$上定義された関数$f$に対して、$f_1 (x) = f(x) 1_(D_1) (x)$と$f_2 (x) = f(x) 1_(D_2) (x)$とおけば、
 $f = f_1+f_2-g$より積分の線形性から
 $
 integral_(D_1 union D_2) f(x) dd(x)
 & = integral_(D_1 union D_2) f_1 (x) dd(x)+integral_(D_1 union D_2) f_2 (x) dd(x)-integral_(D_1 union D_2) g(x) dd(x) \
-& = integral_(D_1) f(x) dd(x)+integral_(D_2) f(x) dd(x)-integral_(D_1 sect D_2) f(x) dd(x)
+& = integral_(D_1) f(x) dd(x)+integral_(D_2) f(x) dd(x)-integral_(D_1 inter D_2) f(x) dd(x)
 $
 を得る。
 ]
@@ -576,7 +576,7 @@ $
 #lemma[
 $D$を面積確定有界閉集合として$f$をその上の連続関数とする。
 この時、度合い関数$omega$が存在して次のようにできる。
-$P$を$D$の分割、つまり$D$の面積確定有界閉部分集合$E$の集合で、任意の$E_1, E_2 in P$, $E_1 eq.not E_2$に対して$E_1 sect E_2$は面積零集合で$union.big_(E in P) E = D$を満たすとする。
+$P$を$D$の分割、つまり$D$の面積確定有界閉部分集合$E$の集合で、任意の$E_1, E_2 in P$, $E_1 eq.not E_2$に対して$E_1 inter E_2$は面積零集合で$union.big_(E in P) E = D$を満たすとする。
 この時、各$E$の任意の点$hat(x) in E$に対して
 $
 abs(sum_(E in P) f(hat(x)) area(E)-integral_D f(x) dd(x))
