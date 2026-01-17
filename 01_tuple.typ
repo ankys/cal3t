@@ -24,7 +24,7 @@ $N$個の集合$X_1, dots, X_N$を考える($N = 1, 2, 3, dots$)。
 
 == 多変数写像
 
-$X_1, dots, X_N, Y$を集合として、元$x_1 in X_1, dots, x_N in X_N$が与えられて$Y$の元$y$が対応する場合、この対応（写像）のことを多変数写像という。
+$X_1, dots, X_N, Y$を集合として、元$x_1 in X_1, dots, x_N in X_N$に対して$Y$の一つの元$y$が対応する場合、この対応（写像）のことを多変数写像という。
 多変数写像を
 $
 F: X_1 times dots times X_N -> Y
@@ -73,7 +73,7 @@ $
 #example([極座標変換])[
 平面（後で導入する）上の変換$(x, y) = F (r, theta)$を
 $
-x = a+r cos theta, y = b+r sin theta
+x = a+r cos theta, quad y = b+r sin theta
 $
 で定めると、
 これはしばしば点$(a, b)$を中心とする_極座標変換_と呼ばれる。
